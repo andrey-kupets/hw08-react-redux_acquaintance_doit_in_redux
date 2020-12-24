@@ -4,16 +4,15 @@ import {useSelector, useDispatch} from "react-redux";
 
 export default function App() {
   const counter = useSelector(({counter}) => counter + 1);
-    console.log(counter)
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/todos/${counter}`)
         .then((response) => response.json())
-        .then((json) => {
-          dispatch({ type: "SET_TODO", payload: json });
+        .then(data => {
+            dispatch({ type: "SET_TODO", payload: data });
         });
-  }, [counter]);
+  }, [counter,dispatch]);
 
   return (
     <div className="App">
