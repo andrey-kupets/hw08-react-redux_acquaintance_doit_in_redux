@@ -5,9 +5,11 @@ import { createStore } from "redux";
 import { Provider } from 'react-redux';
 
 const reducer = (state = initialState, action) => {
+    console.log('action');
+    console.log(action);
     switch (action.type) {
         case 'SET_TODO': {
-            return action.payload;
+            return {...state, todo: action.payload};
         }
         case 'CHANGE_TODO_STATUS': {
             return {
