@@ -8,6 +8,9 @@ const reducer = (state = initialState, action) => {
     console.log('action');
     console.log(action);
     switch (action.type) {
+        case 'CHANGE_COUNT': {
+            return {...state, counter: state.counter + 1};
+        }
         case 'SET_TODO': {
             return {...state, todo: action.payload};
         }
