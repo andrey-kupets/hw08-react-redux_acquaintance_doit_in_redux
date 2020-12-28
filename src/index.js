@@ -13,8 +13,9 @@ const reducer = (state = initialState, action) => {
             return {...state, todo: action.payload};
         }
         case 'CHANGE_TODO_STATUS': {
+
             return {
-                ...state, todo: {...state.todo, completed: !state.completed}
+                ...state, todo: {...state.todo, completed: !state.todo.completed}
             };
         }
         case 'CHANGE_TODO_TITLE': {
