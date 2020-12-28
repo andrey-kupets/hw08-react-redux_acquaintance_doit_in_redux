@@ -5,8 +5,6 @@ import { createStore } from "redux";
 import { Provider } from 'react-redux';
 
 const reducer = (state = initialState, action) => {
-    console.log('action');
-    console.log(action);
     switch (action.type) {
         case 'CHANGE_COUNT': {
             return {...state, counter: state.counter + 1};
@@ -15,8 +13,9 @@ const reducer = (state = initialState, action) => {
             return {...state, todo: action.payload};
         }
         case 'CHANGE_TODO_STATUS': {
+
             return {
-                ...state, todo: {...state.todo, completed: !state.completed}
+                ...state, todo: {...state.todo, completed: !state.todo.completed}
             };
         }
         case 'CHANGE_TODO_TITLE': {
