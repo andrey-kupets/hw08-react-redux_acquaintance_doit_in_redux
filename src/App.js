@@ -14,7 +14,7 @@ export default function App() {
         .then(data => {
             dispatch({ type: "SET_TODO", payload: data });
         });
-  }, [counter,dispatch]);
+  }, [counter]); // why we use dispatch in dependencies?? work w/o it...
 
   return (
     <div className="App">
